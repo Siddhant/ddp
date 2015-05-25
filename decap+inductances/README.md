@@ -6,13 +6,13 @@ power gird for you.
 
 Edit the file to change:
 
-1. The number of _nodes_ you want in x-direcion (variable: "no_x_nodes")
+- The number of _nodes_ you want in x-direcion (variable: "no_x_nodes")
 and in y-direction (variable: "no_y_nodes").
 
-2. The value of decap added at each node. (variable: "decap")
+- The value of decap added at each node. (variable: "decap")
 
-3. Currently, the segment of wire uses the following model:
-
+- Currently, the segment of wire uses the following model, which can be edited to change the values
+of the pi-model:
 ```
 .subckt Rseg 1 3
 R1 1 2 0.583
@@ -21,7 +21,4 @@ C1 1 0 0.25e-12
 C2 3 0 0.25e-12
 .ends
 ```
-
-Edit the values to change the electrical parameters of the pi-model of the wire segment.
-
-4. The name of the ".cir" file generated.
+- The name of the ".cir" file generated.
