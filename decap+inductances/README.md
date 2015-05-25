@@ -22,4 +22,6 @@ C2 3 0 0.25e-12
 .ends
 ```
 
-    Edit the values to change the electrical parameters of the pi-model of the wire segment.
+Edit the values to change the electrical parameters of the pi-model of the wire segment.
+
+4. The name of the ".cir" file generated.
