@@ -195,7 +195,7 @@ for line in sfile:
         cycle_number = cycle_number+1
         # calculate new offset:
         offset = calc_offset()
-    if len(items) == 8:
+    elif len(items) == 8:
         if items[3] == '1':
             x = items[-2]
             y = items[-1]
@@ -205,6 +205,7 @@ for line in sfile:
             cfile.write("\n")
     else:
         print "malformed toggle file"
+        print "malformed line:", items
 
 # we do transient simulation for how long?
 # we use the last value of offset, but to be on the safe side, do for 2 more cycles
