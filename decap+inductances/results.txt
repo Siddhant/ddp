@@ -1,0 +1,21 @@
+for 100by100,
+wire model with with inductances
+1 toggle at opposite corner:
+
+YAVG  = -7.2511E-08 ~ 72.5nA
+
+2 toggles, one at opposite corner, one at center:
+
+YAVG  = -1.6783E-07 ~ 167.8nA
+
+
+
+
+1st cycle
+YAVG  = -2.1864E-08
+
+2nd cycle
+YAVG  = -7.2511E-08 
+
+3rd cycle
+YAVG  = -1.1770E-07
