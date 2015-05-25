@@ -9,11 +9,9 @@ Step 1: Extract points/coordinate information:
 
 Step 2: Create the power grid using coordinate information and toggle trace.
 
-    Syntax: $ python create_spice_power_grid_BPM.py <.points file> <toggle_trace_file>
-<no_primary_input>
+    Syntax: $ python create_spice_power_grid_BPM.py <.points file> <toggle_trace_file> <no_primary_input>
     
-    Example: $ python create_spice_power_grid_BPM.py b04.points
-b04.toggle_trace_xfill_without_ordered.rfill.device.coord 77
+    Example: $ python create_spice_power_grid_BPM.py b04.points b04.toggle_trace_xfill_without_ordered.rfill.device.coord 77
 
     Output: "b04_power_grid_BPM_with_currents.cir"
 
