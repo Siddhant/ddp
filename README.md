@@ -17,14 +17,14 @@ Step 2: Create the power grid using coordinate information and toggle trace.
 
     Note: The <toggle_trace_file> can be either the "rfill" of the "ofill" file.
 
-Step 4: Simulate the circuit using ngspice.
+Step 3: Simulate the circuit using ngspice.
     
     Example: $ ngspice b04_power_grid_BPM_with_currents.cir
 
     Output: a file called "minimums" (note: the ngspice simulation appends to this file. So remember
             to delete this file if re-running simulation.)
 
-Step 5: Find the worst voltage drop.
+Step 4: Find the worst voltage drop.
     
     Syntax: $ python minofmins.py minimums
 
