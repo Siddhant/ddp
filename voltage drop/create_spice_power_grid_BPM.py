@@ -187,16 +187,19 @@ for line in sfile:
     line = line.strip()
     items = line.split(',')
     if len(items) == 6:
-        # skip the next lines (#PI-1) because they are not toggle information:
-        for i in xrange(no_primary_inputs-1):
-            sfile.next()
-        # next line we will read is gonna be gate toggle information,
-        # therefore, we are in the next cycle
-        cycle_number = cycle_number+1
-        # calculate new offset:
-        offset = calc_offset()
+        if items[5].startswith('U'): # add workaround for phantom devices like "(0,1),n603,0,0.000000,U669" in b04
+            print "Skipping malformed line:", line
+        else:   # then this is an input line, not a gate line
+            # skip the next lines (#PI-1) because they are not toggle information:
+            for i in xrange(no_primary_inputs-1):
+                sfile.next()
+            # next line we will read is gonna be gate toggle information,
+            # therefore, we are in the next cycle
+            cycle_number = cycle_number+1
+            # calculate new offset:
+            offset = calc_offset()
     elif len(items) == 8:
-        if items[3] == '1':
+        if items[3] == '1': # ie, onyl if it toggles
             x = items[-2]
             y = items[-1]
             count_I = count_I + 1
@@ -204,9 +207,9 @@ for line in sfile:
             cfile.write('PWL(' + str(offset) + 'ps 0uA ' + str(offset+30) + 'ps 0uA ' + str(offset+31) + 'ps 30uA ' + str(offset+59) + 'ps 30uA ' + str(offset+60) + 'ps 0uA)')
             cfile.write("\n")
     else:
-        print "malformed toggle file"
-        print "malformed line:", items
-
+        print "Malformed line:", line
+        exit()
+        
 # we do transient simulation for how long?
 # we use the last value of offset, but to be on the safe side, do for 2 more cycles
 cfile.write(".tran 1ps " + str(offset+2*cycle_period) + "ps")

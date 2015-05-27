@@ -17,7 +17,8 @@ Step 2: Create the power grid using coordinate information and toggle trace.
 
     Note: The <toggle_trace_file> can be either the "rfill" of the "ofill" file.
 
-Step 3: Simulate the circuit using ngspice.
+Step 3: Simulate the circuit using ngspice. Remember to delete any pre-existing "minimums" file in
+the directory.
     
     Example: $ ngspice b04_power_grid_BPM_with_currents.cir
 
